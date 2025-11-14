@@ -10,7 +10,8 @@ from .forms import PostForm
 # DRF API ViewSet
 # -------------------------------
 class PostViewSet(viewsets.ModelViewSet):
-    queryset = Post.objects.all().order_by('-created_at')
+    queryset = Post.objects.all().order_by('-created_date')
+
     serializer_class = PostSerializer
 
     # Ensure absolute image URLs for Android
@@ -24,7 +25,7 @@ class PostViewSet(viewsets.ModelViewSet):
 # -------------------------------
 @api_view(['GET'])
 def post_list_api(request):
-    posts = Post.objects.all().order_by('-created_at')
+    posts = Post.objects.all().order_by('-created_date')
     serializer = PostSerializer(posts, many=True, context={'request': request})
     return Response(serializer.data)
 
@@ -32,7 +33,7 @@ def post_list_api(request):
 # HTML page view
 # -------------------------------
 def post_list(request):
-    posts = Post.objects.all().order_by('-created_at')
+    posts = Post.objects.all().order_by('-created_date')
     return render(request, 'posts/index.html', {'posts': posts})
 
 # -------------------------------
