@@ -29,9 +29,10 @@
             <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
           </div>
         {% endif %}
-        {% if post.text %}
-          <p class="content">{{ post.text|linebreaksbr }}</p>
-        {% endif %}
+        {% if post.content %}
+  <p class="content">{{ post.content|linebreaksbr }}</p>
+{% endif %}
+
       </div>
     {% empty %}
       <p class="no-posts">아직 게시물이 없습니다.</p>

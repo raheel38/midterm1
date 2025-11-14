@@ -34,7 +34,7 @@ def post_list_api(request):
 # -------------------------------
 def post_list(request):
     posts = Post.objects.all().order_by('-created_date')
-    return render(request, 'posts/index.html', {'posts': posts})
+    return render(request, 'posts/index.html', {'posts': post})
 
 # -------------------------------
 # Optional: simple add form (frontend)
