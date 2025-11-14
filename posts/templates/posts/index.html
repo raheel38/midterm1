@@ -22,7 +22,7 @@
   <main class="post-list">
     {% for post in posts %}
       <div class="post-item">
-        <p class="date">{{ post.created_at|date:"Y년 n월 j일 g:i a" }}</p>
+        <p class="date">{{ post.created_date|date:"Y년 n월 j일 g:i a" }}</p>
         <h2 class="title">{{ post.title }}</h2>
         {% if post.image %}
           <div class="image-container">

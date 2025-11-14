@@ -1,10 +1,16 @@
+from time import timezone
 from django.db import models
+from django.utils import timezone
 
 class Post(models.Model):
-    title = models.CharField(max_length=100)
-    text = models.TextField(blank=True)
-    image = models.ImageField(upload_to='post_images/', blank=True, null=True)  # FIXED
-    created_date = models.DateTimeField(auto_now_add=True)
+    title = models.CharField(max_length=200)
+    text = models.TextField()
+    image = models.ImageField(upload_to='post_images/', null=True, blank=True)
+    created_date = models.DateTimeField(default=timezone.now)
+    published_date = models.DateTimeField(null=True, blank=True)  # ✅ add this
+
 
     def __str__(self):
         return self.title
+
+
