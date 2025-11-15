@@ -6,7 +6,7 @@ class PostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ['id', 'title', 'text', 'created_date', 'published_date', 'image', 'image_url']
+        fields = ['id', 'title', 'content', 'created_date', 'published_date', 'image', 'image_url']
 
     def get_image_url(self, obj):
         request = self.context.get('request')
